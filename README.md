@@ -53,7 +53,10 @@ Esta es la definición del método **map_generator**
 func map_generator(_tilemap, _smooth_iteration = 0, _size = Vector2(35, 35), _fill_wall_percent = 50)
 ```
 
-*) _tilemap : El tilemap que quiere modificar
-*) _smooth_iteration : La cantidad de iteración de suavisado del mapa
-*) _size : Tamaño del mapa en tiles
-*) _fill_wall_percent : Que tantas murallas tiene el mapa
+*) _tilemap : El tilemap que quiere modificar.
+
+*) _smooth_iteration : La cantidad de iteración de suavisado del mapa.
+
+*) _size : Tamaño del mapa en tiles.
+
+*) _fill_wall_percent : Que tantas murallas tiene el mapa.
