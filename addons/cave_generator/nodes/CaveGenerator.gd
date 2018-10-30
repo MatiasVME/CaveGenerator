@@ -27,7 +27,7 @@ export (bool) var debug = false
 var size
 var map = []
 var tilemap
-var fill_percent
+var fill_wall_percent = 50
 
 # Métodos públicos y Setters/Getters
 #
@@ -35,10 +35,10 @@ var fill_percent
 func _ready():
 	randomize()
 
-func map_generator(_tilemap, _smooth_iteration = 0, _fill_percent = 30, _size = Vector2(35, 35)):
+func map_generator(_tilemap, _smooth_iteration = 0, _size = Vector2(35, 35), _fill_wall_percent = 50):
 	tilemap = _tilemap
 	size = _size
-	fill_percent = _fill_percent
+	fill_wall_percent = _fill_wall_percent
 	
 	base_algoritm()
 	for i in _smooth_iteration:
@@ -90,10 +90,9 @@ func base_algoritm():
 	for y in range(size.y):
 		for x in range(size.x):
 			var i = y * size.x + x # index of current tile
-			fill_percent = 50 # how much walls we want
 			
 			# fill map with random tiles
-			if randi() % 101 < fill_percent or x == 0 or x == size.x - 1 or y == 0 or y == size.y - 1:
+			if randi() % 101 < fill_wall_percent or x == 0 or x == size.x - 1 or y == 0 or y == size.y - 1:
 				map[i] = 1 # wall
 			else:
 				map[i] = 0 # empty

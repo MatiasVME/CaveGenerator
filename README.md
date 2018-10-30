@@ -1,6 +1,6 @@
 # CaveGenerator [WIP]
 
-![logo]()
+![logo](https://github.com/MatiasVME/CaveGenerator/blob/master/images/Cave.png)
 
 CaveGenerator es un plugin que facilita la generación de cuevas.
 
@@ -10,7 +10,13 @@ Este plugin es solo una adaptación del código [**Godot-Cave-Generator**](https
 
 ## Resumen
 
+CaveGenerator es un simple plugin que permite gerar cuevas top-down de forma procedural.
+
+![logo](https://github.com/MatiasVME/CaveGenerator/blob/master/images/CaveExample.png)
+
 ## Estado del proyecto
+
+Ya funciona bien, pero puede que existan modificaciones importantes en un futuro.
 
 ## Instalación y uso
 
@@ -31,3 +37,23 @@ Para usar el plugin en un proyecto requiere hacer los siguientes pasos:
 ## Nodos personalizados
 
 ### CaveGenerator
+
+Tomando en cuenta que usted tiene un nodo TileMap y un nodo CaveGenerator en su escena, puede usarlo de la siguiente forma:
+
+```gdscript
+extends Node2D
+
+func _ready():
+	$CaveGenerator.map_generator($TileMap, 6)
+```
+
+Esta es la definición del método **map_generator**
+
+```gdscript
+func map_generator(_tilemap, _smooth_iteration = 0, _size = Vector2(35, 35), _fill_wall_percent = 50)
+```
+
+*) _tilemap : El tilemap que quiere modificar
+*) _smooth_iteration : La cantidad de iteración de suavisado del mapa
+*) _size : Tamaño del mapa en tiles
+*) _fill_wall_percent : Que tantas murallas tiene el mapa
